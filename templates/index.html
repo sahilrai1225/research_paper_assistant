@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>AI Research Assistant</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>AI Research Assistant</h1>
+
+<p class="tagline">
+Discover and summarize research papers from arXiv and Semantic Scholar
+</p>
+
+<form method="POST" class="search-box">
+
+<input type="text" name="query"
+placeholder="Search topics like: transformers, graph neural networks, diffusion models"
+required>
+
+<button type="submit">Search</button>
+
+</form>
+
+</div>
+
+
+<div class="results">
+
+{% for paper in results %}
+
+<div class="paper-card">
+
+<div class="paper-header">
+
+<h2>{{paper.title}}</h2>
+
+<div class="meta">
+
+<span class="source">{{paper.source}}</span>
+
+<span class="year">{{paper.year}}</span>
+
+</div>
+
+</div>
+
+
+<div class="summary">
+
+<p>{{paper.summary}}</p>
+
+</div>
+
+
+<div class="paper-actions">
+
+{% if paper.link %}
+<a href="{{paper.link}}" target="_blank">Open Paper</a>
+{% endif %}
+
+<button onclick="toggleDetails(this)">Expand</button>
+
+</div>
+
+
+<div class="extra-details">
+
+<p>
+AI Summary: This paper discusses methods and findings relevant to the searched topic. The assistant extracted key ideas and generated this condensed explanation to help researchers quickly understand the contribution without reading the full paper immediately.
+</p>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<script>
+
+function toggleDetails(btn){
+
+const details = btn.parentElement.nextElementSibling;
+
+if(details.style.display === "block"){
+
+details.style.display = "none";
+
+btn.innerText = "Expand";
+
+}
+
+else{
+
+details.style.display = "block";
+
+btn.innerText = "Collapse";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -5,6 +5,10 @@ __pycache__/
 
 # C extensions
 *.so
+.venv
+.venv/
+.python-version
+pyproject.toml 
 
 # Distribution / packaging
 .Python
@@ -35,7 +39,7 @@ MANIFEST
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-
+main.py
 # Unit test / coverage reports
 htmlcov/
 .tox/
@@ -50,7 +54,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-
+uv.lock
 # Translations
 *.mo
 *.pot

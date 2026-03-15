@@ -1,0 +1,9 @@
+flask
+requests
+feedparser
+sentence-transformers
+faiss-cpu
+transformers
+torch
+numpy
+ipykernel
